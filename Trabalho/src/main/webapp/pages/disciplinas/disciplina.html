@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="appProva">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="../angular.min.js"></script>
+        <script src="disciplina.js"></script>
+    </head>
+    <body>
+        <div ng-controller="DisciplinaController" ng-init="iniciar()">
+            
+            <div>
+                <br>
+                <table>
+                    <tr>
+                        <td>ID</td>
+                        <td><input type="text" ng-disabled="!isNovo" ng-model="disciplina.id"></td>
+                    </tr>
+                    <tr>
+                        <td>Nome</td>
+                        <td><input type="text" ng-model="disciplina.nome"></td>
+                    </tr>
+                    <tr>
+                        <td>Carga Horária</td>
+                        <td><input type="text" ng-model="disciplina.cargaHoraria"></td>
+                    </tr>
+                    <tr>
+                        <td>Peso</td>
+                        <td><input type="text" ng-model="disciplina.peso"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button ng-click="salvar()">Salvar</button></td>
+                    </tr>
+                </table>
+            </div>
+            <br><br>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nome</th>
+                        <th>Carga Horária</th>
+                        <th>Peso</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="d in disciplinas">
+                        <td>{{d.id}}</td>
+                        <td>{{d.nome}}</td>
+                        <td>{{d.cargaHoraria}}</td>
+                        <td>{{d.peso}}</td>
+                        <td>
+                            <a href="#" ng-click="excluir(d)">Excluir</a>
+                            <a href="#" ng-click="editar(d)">Editar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            
+        </div>
+    </body>
+</html>
